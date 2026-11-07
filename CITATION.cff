@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it as below."
+type: software
+title: "Artifact for: Transport, Policy, and Caching Trade-offs in Security-Enforcing Gateways for the Model Context Protocol: An Empirical Study"
+authors:
+  - family-names: Zhong
+    given-names: Yi
+    email: yz3935@columbia.edu
+    orcid: "https://orcid.org/0009-0008-4628-1609"
+version: "1.0"
+date-released: "2026-11-06"
+license: MIT
+repository-code: "https://github.com/peterzhongyi/mcp-gateway-study"
+abstract: >-
+  Gateway prototype, benchmark harness, EC2 deployment scripts, raw results,
+  and manuscript source for an empirical study of the latency, throughput,
+  security, and cost trade-offs of security-enforcing gateways for the Model
+  Context Protocol (MCP).
+keywords:
+  - Model Context Protocol
+  - MCP gateway
+  - LLM agents
+  - security
+  - caching
+  - benchmarking
