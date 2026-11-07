@@ -3,6 +3,9 @@ message: "If you use this artifact, please cite it as below."
 type: software
 title: "Artifact for: Transport, Policy, and Caching Trade-offs in Security-Enforcing Gateways for the Model Context Protocol: An Empirical Study"
 authors:
+  - family-names: Li
+    given-names: He
+    email: hl746@cornell.edu
   - family-names: Zhong
     given-names: Yi
     email: yz3935@columbia.edu
