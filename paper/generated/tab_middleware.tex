@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Gateway processing time per stage (ms, mean of five trials of 75 calls) versus payload size on the single host, and total time on EC2 in one availability zone. Request and response bodies are both scaled to the given size.}
+\label{tab:middleware}
+\small
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{r rrrrr rr r}
+\toprule
+ & \multicolumn{7}{c}{Single host} & EC2 \\
+\cmidrule(lr){2-8}\cmidrule(lr){9-9}
+KB & M1 & M2 & M3-in & M4 & M3-out & Total & P99 & Total \\
+\midrule
+1 & 0.050 & 0.008 & 0.123 & 0.053 & 0.089 & 0.324 & 0.486 & 0.190 \\
+4 & 0.042 & 0.007 & 0.340 & 0.061 & 0.202 & 0.653 & 0.832 & 0.416 \\
+16 & 0.046 & 0.007 & 1.334 & 0.108 & 0.756 & 2.251 & 2.939 & 1.317 \\
+64 & 0.052 & 0.009 & 4.848 & 0.261 & 2.687 & 7.857 & 8.386 & 4.937 \\
+256 & 0.067 & 0.011 & 19.843 & 0.872 & 10.771 & 31.564 & 33.126 & 19.022 \\
+\bottomrule
+\end{tabular}
+\end{table}

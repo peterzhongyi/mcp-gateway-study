@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Security conformance of the full gateway (A4): cases flagged / cases per category. C1 and C2 contain only deterministic credential and policy violations, so they have no evasive subset.}
+\label{tab:security}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l cc}
+\toprule
+Category & Signature & Evasive \\
+\midrule
+C1 Authentication \& delegation & 40/40 & -- \\
+C2 Authorization \& schema & 40/40 & -- \\
+C3 Prompt injection (args) & 30/30 & 0/30 \\
+C4 SSRF / command / SQL & 20/20 & 0/20 \\
+C5 Poisoned tool output & 15/15 & 0/15 \\
+C6 Secrets / PII in output & 15/15 & 0/15 \\
+\midrule
+Benign, ordinary tool calls & \multicolumn{2}{c}{0/140 flagged} \\
+Benign, security vocabulary & \multicolumn{2}{c}{30/30 flagged} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,97 @@
+exp1: transport topologies
+  rtt= 0ms T1       mean=6.530+/-0.176 p50=5.404 p99=11.631 hit=0.0%
+  rtt= 0ms T2       mean=7.029+/-0.179 p50=5.899 p99=12.190 hit=0.0%
+  rtt= 0ms T3       mean=7.108+/-0.184 p50=6.017 p99=12.458 hit=0.0%
+  rtt= 0ms T4       mean=6.958+/-0.172 p50=5.851 p99=12.135 hit=0.0%
+  rtt= 0ms T4+cache mean=6.597+/-0.292 p50=5.705 p99=12.112 hit=7.1%
+  session setup rtt=0: T1=45.35ms, T2=1.35ms, T3=0.00ms, T4=0.19ms
+exp2: middleware stage breakdown vs payload size
+    1 KB: total=0.190ms (p99 0.228) auth=0.034 rbac=0.005 in=0.064 cache=0.038 out=0.049
+    4 KB: total=0.416ms (p99 0.470) auth=0.033 rbac=0.005 in=0.203 cache=0.045 out=0.130
+   16 KB: total=1.317ms (p99 1.397) auth=0.034 rbac=0.005 in=0.754 cache=0.071 out=0.454
+   64 KB: total=4.937ms (p99 6.286) auth=0.035 rbac=0.005 in=2.966 cache=0.175 out=1.756
+  256 KB: total=19.022ms (p99 19.683) auth=0.035 rbac=0.005 in=11.524 cache=0.552 out=6.907
+exp3: ablation (latency + measured security)
+  A0 Bare proxy             mean=6.817ms overhead=0.0000ms recall=0.0% FPR=0.0% precision=0.0%
+  A1 +M1 auth               mean=6.897ms overhead=0.0448ms recall=16.7% FPR=0.0% precision=100.0%
+  A2 +M2 RBAC/schema        mean=6.902ms overhead=0.0517ms recall=33.3% FPR=0.0% precision=100.0%
+  A3 +M3 inbound DPI        mean=6.966ms overhead=0.0747ms recall=54.2% FPR=17.6% precision=81.2%
+  A4 +M3 outbound DPI/DLP   mean=7.193ms overhead=0.3075ms recall=66.7% FPR=17.6% precision=84.2%
+  A5 +M4 proposed cache     mean=6.853ms overhead=0.3133ms recall=66.7% FPR=17.6% precision=84.2%
+exp4: cache policy comparison
+  a=0.6 none             hit=0.0% saved=0.0% lat=6.682ms leak=0.00% stale=0.00% (of all requests)
+  a=0.6 global_fifo      hit=21.4% saved=15.6% lat=5.583ms leak=12.85% stale=7.05% (of all requests)
+  a=0.6 global_lru       hit=21.2% saved=15.2% lat=5.655ms leak=12.60% stale=6.85% (of all requests)
+  a=0.6 tenant_lru       hit=7.6% saved=4.3% lat=6.442ms leak=0.00% stale=2.20% (of all requests)
+  a=0.6 tenant_ttl_lru   hit=5.5% saved=2.6% lat=6.458ms leak=0.00% stale=0.00% (of all requests)
+  a=0.6 proposed_tiered  hit=5.4% saved=2.5% lat=6.473ms leak=0.00% stale=0.00% (of all requests)
+  a=0.8 none             hit=0.0% saved=0.0% lat=6.539ms leak=0.00% stale=0.00% (of all requests)
+  a=0.8 global_fifo      hit=27.3% saved=20.5% lat=5.090ms leak=17.05% stale=9.35% (of all requests)
+  a=0.8 global_lru       hit=26.6% saved=19.9% lat=5.153ms leak=16.75% stale=8.90% (of all requests)
+  a=0.8 tenant_lru       hit=9.7% saved=6.1% lat=6.131ms leak=0.00% stale=2.00% (of all requests)
+  a=0.8 tenant_ttl_lru   hit=7.8% saved=4.8% lat=6.277ms leak=0.00% stale=0.00% (of all requests)
+  a=0.8 proposed_tiered  hit=7.8% saved=4.8% lat=6.316ms leak=0.00% stale=0.00% (of all requests)
+  a=1.0 none             hit=0.0% saved=0.0% lat=6.696ms leak=0.00% stale=0.00% (of all requests)
+  a=1.0 global_fifo      hit=31.9% saved=24.8% lat=4.950ms leak=20.95% stale=10.75% (of all requests)
+  a=1.0 global_lru       hit=31.9% saved=24.8% lat=4.948ms leak=20.95% stale=10.70% (of all requests)
+  a=1.0 tenant_lru       hit=13.0% saved=9.5% lat=6.035ms leak=0.00% stale=4.05% (of all requests)
+  a=1.0 tenant_ttl_lru   hit=9.6% saved=6.7% lat=6.215ms leak=0.00% stale=0.00% (of all requests)
+  a=1.0 proposed_tiered  hit=9.3% saved=6.6% lat=6.229ms leak=0.00% stale=0.00% (of all requests)
+  a=1.2 none             hit=0.0% saved=0.0% lat=6.634ms leak=0.00% stale=0.00% (of all requests)
+  a=1.2 global_fifo      hit=38.2% saved=30.2% lat=4.534ms leak=25.15% stale=13.50% (of all requests)
+  a=1.2 global_lru       hit=38.2% saved=30.1% lat=4.539ms leak=25.15% stale=13.50% (of all requests)
+  a=1.2 tenant_lru       hit=18.0% saved=13.3% lat=5.702ms leak=0.00% stale=6.25% (of all requests)
+  a=1.2 tenant_ttl_lru   hit=12.7% saved=9.0% lat=5.980ms leak=0.00% stale=0.00% (of all requests)
+  a=1.2 proposed_tiered  hit=12.6% saved=9.0% lat=5.995ms leak=0.00% stale=0.00% (of all requests)
+  a=1.4 none             hit=0.0% saved=0.0% lat=6.815ms leak=0.00% stale=0.00% (of all requests)
+  a=1.4 global_fifo      hit=42.8% saved=34.6% lat=4.341ms leak=29.90% stale=15.00% (of all requests)
+  a=1.4 global_lru       hit=42.8% saved=34.6% lat=4.335ms leak=29.90% stale=15.00% (of all requests)
+  a=1.4 tenant_lru       hit=21.4% saved=16.8% lat=5.606ms leak=0.00% stale=6.50% (of all requests)
+  a=1.4 tenant_ttl_lru   hit=16.1% saved=12.3% lat=5.911ms leak=0.00% stale=0.00% (of all requests)
+  a=1.4 proposed_tiered  hit=15.8% saved=12.0% lat=5.942ms leak=0.00% stale=0.00% (of all requests)
+exp5: closed-loop concurrency + bounds model
+  T2       N=  1 X=146/s mean=6.83ms p99=12.38ms cpu=0.437ms/req hold=0.56ms heap=307KB
+  T2       N=  2 X=296/s mean=6.63ms p99=12.40ms cpu=0.390ms/req hold=0.44ms heap=332KB
+  T2       N=  4 X=596/s mean=6.46ms p99=12.11ms cpu=0.350ms/req hold=0.41ms heap=341KB
+  T2       N=  8 X=1085/s mean=6.63ms p99=12.18ms cpu=0.308ms/req hold=0.39ms heap=395KB
+  T2       N= 16 X=2201/s mean=6.24ms p99=11.90ms cpu=0.250ms/req hold=0.46ms heap=557KB
+  T2       N= 32 X=3572/s mean=6.69ms p99=12.57ms cpu=0.212ms/req hold=0.94ms heap=671KB
+  T2       N= 64 X=4335/s mean=11.57ms p99=25.50ms cpu=0.200ms/req hold=2.47ms heap=946KB
+  T2       N=128 X=4742/s mean=22.46ms p99=59.07ms cpu=0.199ms/req hold=2.79ms heap=1546KB
+  T2 [dcpu_at_n1]: R1=6.83 Dcpu=0.437 Shold=0.56 bottleneck=cpu knee N*=15.6 -> MAPE X=18.73% R=53.02%
+  T2 [dcpu_at_nmax]: R1=6.83 Dcpu=0.199 Shold=0.56 bottleneck=cpu knee N*=34.4 -> MAPE X=8.84% R=5.84%
+  T3       N=  1 X=147/s mean=6.82ms p99=12.62ms cpu=0.558ms/req hold=6.57ms heap=307KB
+  T3       N=  2 X=299/s mean=6.55ms p99=12.46ms cpu=0.453ms/req hold=6.33ms heap=336KB
+  T3       N=  4 X=598/s mean=6.38ms p99=12.10ms cpu=0.368ms/req hold=6.18ms heap=352KB
+  T3       N=  8 X=1084/s mean=6.71ms p99=12.12ms cpu=0.346ms/req hold=6.51ms heap=429KB
+  T3       N= 16 X=2030/s mean=6.92ms p99=12.74ms cpu=0.336ms/req hold=6.72ms heap=578KB
+  T3       N= 32 X=2072/s mean=13.78ms p99=21.00ms cpu=0.339ms/req hold=6.91ms heap=726KB
+  T3       N= 64 X=2103/s mean=27.83ms p99=37.35ms cpu=0.353ms/req hold=7.03ms heap=1065KB
+  T3       N=128 X=2191/s mean=54.34ms p99=65.24ms cpu=0.340ms/req hold=6.90ms heap=1618KB
+  T3 [dcpu_at_n1]: R1=6.82 Dcpu=0.558 Shold=6.57 bottleneck=cpu knee N*=12.2 -> MAPE X=8.76% R=16.36%
+  T3 [dcpu_at_nmax]: R1=6.82 Dcpu=0.340 Shold=6.57 bottleneck=pool knee N*=16.6 -> MAPE X=9.02% R=3.44%
+  T4       N=  1 X=151/s mean=6.62ms p99=12.12ms cpu=0.357ms/req hold=6.39ms heap=302KB
+  T4       N=  2 X=300/s mean=6.55ms p99=12.22ms cpu=0.333ms/req hold=6.32ms heap=325KB
+  T4       N=  4 X=595/s mean=6.46ms p99=12.09ms cpu=0.304ms/req hold=6.25ms heap=342KB
+  T4       N=  8 X=1088/s mean=6.56ms p99=12.12ms cpu=0.272ms/req hold=6.36ms heap=386KB
+  T4       N= 16 X=2220/s mean=6.14ms p99=11.86ms cpu=0.231ms/req hold=5.96ms heap=517KB
+  T4       N= 32 X=2107/s mean=9.46ms p99=72.73ms cpu=0.236ms/req hold=6.17ms heap=563KB
+  T4       N= 64 X=2261/s mean=15.62ms p99=163.43ms cpu=0.239ms/req hold=6.13ms heap=712KB
+  T4       N=128 X=2337/s mean=28.32ms p99=353.58ms cpu=0.235ms/req hold=6.16ms heap=954KB
+  T4 [dcpu_at_n1]: R1=6.62 Dcpu=0.357 Shold=6.39 bottleneck=pool knee N*=16.6 -> MAPE X=7.34% R=23.93%
+  T4 [dcpu_at_nmax]: R1=6.62 Dcpu=0.235 Shold=6.39 bottleneck=pool knee N*=16.6 -> MAPE X=7.34% R=23.93%
+  T4+cache N=  1 X=165/s mean=6.05ms p99=12.17ms cpu=0.336ms/req hold=6.64ms heap=1031KB
+  T4+cache N=  2 X=316/s mean=6.14ms p99=12.26ms cpu=0.321ms/req hold=6.61ms heap=937KB
+  T4+cache N=  4 X=639/s mean=5.92ms p99=12.06ms cpu=0.289ms/req hold=6.53ms heap=966KB
+  T4+cache N=  8 X=1168/s mean=6.18ms p99=12.27ms cpu=0.268ms/req hold=6.63ms heap=1028KB
+  T4+cache N= 16 X=2261/s mean=5.75ms p99=11.96ms cpu=0.228ms/req hold=6.29ms heap=965KB
+  T4+cache N= 32 X=2365/s mean=8.90ms p99=71.77ms cpu=0.231ms/req hold=6.50ms heap=1031KB
+  T4+cache N= 64 X=2367/s mean=14.77ms p99=156.57ms cpu=0.228ms/req hold=6.52ms heap=1322KB
+  T4+cache N=128 X=2620/s mean=25.75ms p99=311.40ms cpu=0.217ms/req hold=6.57ms heap=1682KB
+  T4+cache [dcpu_at_n1]: R1=6.05 Dcpu=0.336 Shold=6.64 bottleneck=pool knee N*=14.6 -> MAPE X=4.97% R=32.05%
+  T4+cache [dcpu_at_nmax]: R1=6.05 Dcpu=0.217 Shold=6.64 bottleneck=pool knee N*=14.6 -> MAPE X=4.97% R=32.05%
+exp6: analytical cost model
+  inputs: {'lambda_billed_ms_uncached': 7, 'lambda_billed_ms_cached': 7, 'cpu_ms_per_req_uncached': 0.236, 'cpu_ms_per_req_cached': 0.2306, 'capacity_m_per_vcpu_month_uncached': 6681.4, 'capacity_m_per_vcpu_month_cached': 6837.8, 'cache_hit_ratio': 0.093, 'fargate_task_month': 36.04, 'ec2_month': 70.08, 'alb_month': 16.43}
+  sensitivity: [(5, 587.2), (10, 507.85), (20, 399.8), (50, 244.03), (100, 147.96), (200, 82.78), (500, 35.66), (1000, 18.3)]
+  break-even Lambda vs EC2+cache: 606.14 M req/month
+done in 550.7 s -> results/aws_same_az.json

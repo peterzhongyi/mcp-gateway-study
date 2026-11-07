@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Cache policies at Zipf $\alpha = 1.0$ (four tenants, capacity 64 entries, five trials of 400 calls). Saved: share of upstream service time avoided. Leak and stale: share of all calls answered with another tenant's data or with data older than the tool's freshness bound.}
+\label{tab:cache}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l rrrrr}
+\toprule
+Policy & Hit & Saved & Latency & Leak & Stale \\
+ & (\%) & (\%) & (ms) & (\%) & (\%) \\
+\midrule
+No cache & 0.0 & 0.0 & 7.05 & 0.0 & 0.0 \\
+Global FIFO & 31.9 & 24.8 & 5.26 & 20.9 & 10.8 \\
+Global LRU & 31.9 & 24.8 & 5.31 & 20.9 & 10.7 \\
+Tenant LRU & 13.0 & 9.5 & 6.43 & 0.0 & 4.0 \\
+Tenant LRU + per-tool TTL & 9.6 & 6.7 & 6.52 & 0.0 & 0.0 \\
+Proposed (+ cost-aware) & 9.3 & 6.6 & 6.55 & 0.0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

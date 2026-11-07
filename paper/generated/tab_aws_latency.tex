@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\caption{Sequential latency per call on Amazon EC2 (two c7i.large instances; real network, no emulated delay; mean of five trials). RTT is the median TCP connect time between the hosts.}
+\label{tab:aws-latency}
+\footnotesize
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{ll r rrr r r}
+\toprule
+ & & & \multicolumn{3}{c}{Latency (ms)} & & T3$-$T4 \\
+\cmidrule(lr){4-6}
+Placement & Security & RTT (ms) & T2 & T3 & T4 & T3/T4 & (ms) \\
+\midrule
+Same AZ & TCP & 0.15 & 7.03 & 7.11 & 6.96 & 1.02 & 0.15 \\
+ & TLS & 0.15 & 7.13 & 8.51 & 7.13 & 1.19 & 1.38 \\
+\addlinespace
+Cross AZ & TCP & 0.53 & 7.42 & 8.02 & 7.36 & 1.09 & 0.66 \\
+ & TLS & 0.54 & 7.49 & 9.83 & 7.45 & 1.32 & 2.38 \\
+\addlinespace
+Cross region & TCP & 12.73 & 19.15 & 32.36 & 19.31 & 1.68 & 13.05 \\
+ & TLS & 12.90 & 19.63 & 46.00 & 19.13 & 2.40 & 26.87 \\
+\bottomrule
+\end{tabular}
+\end{table}

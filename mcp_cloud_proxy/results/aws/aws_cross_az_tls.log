@@ -1,0 +1,49 @@
+exp1: transport topologies
+  rtt= 0ms T1       mean=6.506+/-0.171 p50=5.385 p99=11.583 hit=0.0%
+  rtt= 0ms T2       mean=7.494+/-0.172 p50=6.375 p99=12.665 hit=0.0%
+  rtt= 0ms T3       mean=9.835+/-0.214 p50=8.823 p99=15.137 hit=0.0%
+  rtt= 0ms T4       mean=7.454+/-0.180 p50=6.332 p99=12.626 hit=0.0%
+  rtt= 0ms T4+cache mean=7.069+/-0.299 p50=6.228 p99=12.589 hit=7.1%
+  session setup rtt=0: T1=51.36ms, T2=6.24ms, T3=0.00ms, T4=2.16ms
+exp5: closed-loop concurrency + bounds model
+  T2       N=  1 X=140/s mean=7.16ms p99=12.68ms cpu=0.553ms/req hold=0.97ms heap=308KB
+  T2       N=  2 X=277/s mean=7.09ms p99=12.77ms cpu=0.489ms/req hold=0.89ms heap=330KB
+  T2       N=  4 X=555/s mean=6.97ms p99=12.68ms cpu=0.441ms/req hold=0.85ms heap=345KB
+  T2       N=  8 X=1019/s mean=7.09ms p99=12.54ms cpu=0.379ms/req hold=0.80ms heap=385KB
+  T2       N= 16 X=2066/s mean=6.69ms p99=12.37ms cpu=0.312ms/req hold=0.88ms heap=531KB
+  T2       N= 32 X=3216/s mean=7.73ms p99=13.60ms cpu=0.257ms/req hold=1.86ms heap=666KB
+  T2       N= 64 X=3730/s mean=14.14ms p99=32.19ms cpu=0.247ms/req hold=3.22ms heap=931KB
+  T2       N=128 X=3880/s mean=26.65ms p99=84.79ms cpu=0.246ms/req hold=3.28ms heap=1426KB
+  T2 [dcpu_at_n1]: R1=7.16 Dcpu=0.553 Shold=0.97 bottleneck=cpu knee N*=13.0 -> MAPE X=21.52% R=60.16%
+  T2 [dcpu_at_nmax]: R1=7.16 Dcpu=0.246 Shold=0.97 bottleneck=cpu knee N*=29.2 -> MAPE X=7.5% R=5.33%
+  T3       N=  1 X=105/s mean=9.48ms p99=15.17ms cpu=1.665ms/req hold=9.21ms heap=572KB
+  T3       N=  2 X=211/s mean=9.30ms p99=15.02ms cpu=1.537ms/req hold=9.04ms heap=848KB
+  T3       N=  4 X=411/s mean=9.51ms p99=15.35ms cpu=1.470ms/req hold=9.25ms heap=1406KB
+  T3       N=  8 X=647/s mean=11.70ms p99=17.97ms cpu=1.391ms/req hold=11.45ms heap=2526KB
+  T3       N= 16 X=756/s mean=20.54ms p99=29.37ms cpu=1.304ms/req hold=20.30ms heap=4585KB
+  T3       N= 32 X=749/s mean=40.80ms p99=50.73ms cpu=1.316ms/req hold=19.68ms heap=4658KB
+  T3       N= 64 X=750/s mean=80.64ms p99=93.39ms cpu=1.324ms/req hold=19.77ms heap=4895KB
+  T3       N=128 X=748/s mean=161.21ms p99=180.34ms cpu=1.331ms/req hold=19.93ms heap=5220KB
+  T3 [dcpu_at_n1]: R1=9.48 Dcpu=1.665 Shold=9.21 bottleneck=cpu knee N*=5.7 -> MAPE X=11.26% R=17.61%
+  T3 [dcpu_at_nmax]: R1=9.48 Dcpu=1.331 Shold=9.21 bottleneck=cpu knee N*=7.1 -> MAPE X=2.57% R=3.83%
+  T4       N=  1 X=141/s mean=7.10ms p99=12.58ms cpu=0.422ms/req hold=6.84ms heap=304KB
+  T4       N=  2 X=278/s mean=7.05ms p99=12.74ms cpu=0.403ms/req hold=6.80ms heap=330KB
+  T4       N=  4 X=550/s mean=7.01ms p99=12.74ms cpu=0.373ms/req hold=6.77ms heap=345KB
+  T4       N=  8 X=1011/s mean=7.14ms p99=12.49ms cpu=0.342ms/req hold=6.91ms heap=403KB
+  T4       N= 16 X=2071/s mean=6.69ms p99=12.47ms cpu=0.282ms/req hold=6.48ms heap=510KB
+  T4       N= 32 X=1958/s mean=10.24ms p99=79.65ms cpu=0.290ms/req hold=6.67ms heap=565KB
+  T4       N= 64 X=2039/s mean=17.04ms p99=176.91ms cpu=0.298ms/req hold=6.70ms heap=718KB
+  T4       N=128 X=2176/s mean=30.49ms p99=381.25ms cpu=0.287ms/req hold=6.65ms heap=959KB
+  T4 [dcpu_at_n1]: R1=7.10 Dcpu=0.422 Shold=6.84 bottleneck=pool knee N*=16.6 -> MAPE X=8.2% R=22.85%
+  T4 [dcpu_at_nmax]: R1=7.10 Dcpu=0.287 Shold=6.84 bottleneck=pool knee N*=16.6 -> MAPE X=8.2% R=22.85%
+  T4+cache N=  1 X=155/s mean=6.45ms p99=12.60ms cpu=0.398ms/req hold=7.07ms heap=1034KB
+  T4+cache N=  2 X=295/s mean=6.58ms p99=12.74ms cpu=0.392ms/req hold=7.05ms heap=939KB
+  T4+cache N=  4 X=595/s mean=6.38ms p99=12.69ms cpu=0.353ms/req hold=7.02ms heap=978KB
+  T4+cache N=  8 X=1096/s mean=6.64ms p99=12.56ms cpu=0.328ms/req hold=7.14ms heap=1026KB
+  T4+cache N= 16 X=2130/s mean=6.18ms p99=12.40ms cpu=0.272ms/req hold=6.75ms heap=970KB
+  T4+cache N= 32 X=2047/s mean=9.80ms p99=78.12ms cpu=0.283ms/req hold=7.13ms heap=1022KB
+  T4+cache N= 64 X=2243/s mean=15.77ms p99=166.16ms cpu=0.274ms/req hold=6.97ms heap=1327KB
+  T4+cache N=128 X=2437/s mean=27.74ms p99=337.80ms cpu=0.266ms/req hold=7.04ms heap=1691KB
+  T4+cache [dcpu_at_n1]: R1=6.45 Dcpu=0.398 Shold=7.07 bottleneck=pool knee N*=14.6 -> MAPE X=5.94% R=31.03%
+  T4+cache [dcpu_at_nmax]: R1=6.45 Dcpu=0.266 Shold=7.07 bottleneck=pool knee N*=14.6 -> MAPE X=5.94% R=31.03%
+done in 173.2 s -> results/aws_cross_az_tls.json

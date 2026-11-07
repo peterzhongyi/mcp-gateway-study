@@ -1,0 +1,398 @@
+{
+ "alpha": 1.0,
+ "window": 4,
+ "trace_len": 400,
+ "seeds": [
+  101,
+  202,
+  303,
+  404,
+  505,
+  606,
+  707,
+  808,
+  909,
+  1010,
+  1111,
+  1212,
+  1313,
+  1414,
+  1515,
+  1616,
+  1717,
+  1818,
+  1919,
+  2020
+ ],
+ "cells": [
+  {
+   "spread": "current",
+   "costs_ms": {
+    "doc_metadata_lookup": 8.2,
+    "feature_store_fetch": 11.5,
+    "slo_burn_rate_check": 12.0,
+    "code_symbol_index": 14.0,
+    "k8s_pod_telemetry": 15.0,
+    "kb_vector_search": 18.5,
+    "billing_cost_rollup": 27.5,
+    "sql_analytics_query": 34.0
+   },
+   "capacity": 16,
+   "tenant_ttl_lru": {
+    "saved_pct": 3.684,
+    "hit_pct": 3.837,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 289.15
+   },
+   "proposed_tiered": {
+    "saved_pct": 4.069,
+    "hit_pct": 3.6,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 290.05
+   },
+   "diff_saved": {
+    "mean": 0.385,
+    "ci_lo": 0.032,
+    "ci_hi": 0.738,
+    "p": 0.03429
+   },
+   "diff_hit": {
+    "mean": -0.237,
+    "ci_lo": -0.454,
+    "ci_hi": -0.021,
+    "p": 0.0331
+   },
+   "helps": true
+  },
+  {
+   "spread": "current",
+   "costs_ms": {
+    "doc_metadata_lookup": 8.2,
+    "feature_store_fetch": 11.5,
+    "slo_burn_rate_check": 12.0,
+    "code_symbol_index": 14.0,
+    "k8s_pod_telemetry": 15.0,
+    "kb_vector_search": 18.5,
+    "billing_cost_rollup": 27.5,
+    "sql_analytics_query": 34.0
+   },
+   "capacity": 64,
+   "tenant_ttl_lru": {
+    "saved_pct": 9.012,
+    "hit_pct": 9.363,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 203.3
+   },
+   "proposed_tiered": {
+    "saved_pct": 8.781,
+    "hit_pct": 9.062,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 204.0
+   },
+   "diff_saved": {
+    "mean": -0.23,
+    "ci_lo": -0.358,
+    "ci_hi": -0.103,
+    "p": 0.00128
+   },
+   "diff_hit": {
+    "mean": -0.3,
+    "ci_lo": -0.411,
+    "ci_hi": -0.189,
+    "p": 2e-05
+   },
+   "helps": false
+  },
+  {
+   "spread": "current",
+   "costs_ms": {
+    "doc_metadata_lookup": 8.2,
+    "feature_store_fetch": 11.5,
+    "slo_burn_rate_check": 12.0,
+    "code_symbol_index": 14.0,
+    "k8s_pod_telemetry": 15.0,
+    "kb_vector_search": 18.5,
+    "billing_cost_rollup": 27.5,
+    "sql_analytics_query": 34.0
+   },
+   "capacity": 256,
+   "tenant_ttl_lru": {
+    "saved_pct": 11.918,
+    "hit_pct": 11.613,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 0.0
+   },
+   "proposed_tiered": {
+    "saved_pct": 11.918,
+    "hit_pct": 11.613,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 0.0
+   },
+   "diff_saved": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p": 1.0
+   },
+   "diff_hit": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p": 1.0
+   },
+   "helps": false
+  },
+  {
+   "spread": "moderate",
+   "costs_ms": {
+    "doc_metadata_lookup": 10.0,
+    "feature_store_fetch": 16.26,
+    "slo_burn_rate_check": 26.43,
+    "code_symbol_index": 42.96,
+    "k8s_pod_telemetry": 69.83,
+    "kb_vector_search": 113.52,
+    "billing_cost_rollup": 184.55,
+    "sql_analytics_query": 300.0
+   },
+   "capacity": 16,
+   "tenant_ttl_lru": {
+    "saved_pct": 3.794,
+    "hit_pct": 3.837,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 289.15
+   },
+   "proposed_tiered": {
+    "saved_pct": 4.806,
+    "hit_pct": 3.587,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 290.1
+   },
+   "diff_saved": {
+    "mean": 1.011,
+    "ci_lo": 0.452,
+    "ci_hi": 1.571,
+    "p": 0.00125
+   },
+   "diff_hit": {
+    "mean": -0.25,
+    "ci_lo": -0.461,
+    "ci_hi": -0.039,
+    "p": 0.02288
+   },
+   "helps": true
+  },
+  {
+   "spread": "moderate",
+   "costs_ms": {
+    "doc_metadata_lookup": 10.0,
+    "feature_store_fetch": 16.26,
+    "slo_burn_rate_check": 26.43,
+    "code_symbol_index": 42.96,
+    "k8s_pod_telemetry": 69.83,
+    "kb_vector_search": 113.52,
+    "billing_cost_rollup": 184.55,
+    "sql_analytics_query": 300.0
+   },
+   "capacity": 64,
+   "tenant_ttl_lru": {
+    "saved_pct": 9.46,
+    "hit_pct": 9.363,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 203.3
+   },
+   "proposed_tiered": {
+    "saved_pct": 9.278,
+    "hit_pct": 9.062,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 204.0
+   },
+   "diff_saved": {
+    "mean": -0.183,
+    "ci_lo": -0.315,
+    "ci_hi": -0.051,
+    "p": 0.00921
+   },
+   "diff_hit": {
+    "mean": -0.3,
+    "ci_lo": -0.411,
+    "ci_hi": -0.189,
+    "p": 2e-05
+   },
+   "helps": false
+  },
+  {
+   "spread": "moderate",
+   "costs_ms": {
+    "doc_metadata_lookup": 10.0,
+    "feature_store_fetch": 16.26,
+    "slo_burn_rate_check": 26.43,
+    "code_symbol_index": 42.96,
+    "k8s_pod_telemetry": 69.83,
+    "kb_vector_search": 113.52,
+    "billing_cost_rollup": 184.55,
+    "sql_analytics_query": 300.0
+   },
+   "capacity": 256,
+   "tenant_ttl_lru": {
+    "saved_pct": 12.412,
+    "hit_pct": 11.613,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 0.0
+   },
+   "proposed_tiered": {
+    "saved_pct": 12.412,
+    "hit_pct": 11.613,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 0.0
+   },
+   "diff_saved": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p": 1.0
+   },
+   "diff_hit": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p": 1.0
+   },
+   "helps": false
+  },
+  {
+   "spread": "wide",
+   "costs_ms": {
+    "doc_metadata_lookup": 10.0,
+    "feature_store_fetch": 21.32,
+    "slo_burn_rate_check": 45.44,
+    "code_symbol_index": 96.86,
+    "k8s_pod_telemetry": 206.48,
+    "kb_vector_search": 440.14,
+    "billing_cost_rollup": 938.23,
+    "sql_analytics_query": 2000.0
+   },
+   "capacity": 16,
+   "tenant_ttl_lru": {
+    "saved_pct": 3.974,
+    "hit_pct": 3.837,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 289.15
+   },
+   "proposed_tiered": {
+    "saved_pct": 5.585,
+    "hit_pct": 3.587,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 290.1
+   },
+   "diff_saved": {
+    "mean": 1.612,
+    "ci_lo": 0.861,
+    "ci_hi": 2.363,
+    "p": 0.00025
+   },
+   "diff_hit": {
+    "mean": -0.25,
+    "ci_lo": -0.461,
+    "ci_hi": -0.039,
+    "p": 0.02288
+   },
+   "helps": true
+  },
+  {
+   "spread": "wide",
+   "costs_ms": {
+    "doc_metadata_lookup": 10.0,
+    "feature_store_fetch": 21.32,
+    "slo_burn_rate_check": 45.44,
+    "code_symbol_index": 96.86,
+    "k8s_pod_telemetry": 206.48,
+    "kb_vector_search": 440.14,
+    "billing_cost_rollup": 938.23,
+    "sql_analytics_query": 2000.0
+   },
+   "capacity": 64,
+   "tenant_ttl_lru": {
+    "saved_pct": 9.666,
+    "hit_pct": 9.363,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 203.3
+   },
+   "proposed_tiered": {
+    "saved_pct": 9.519,
+    "hit_pct": 9.062,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 204.0
+   },
+   "diff_saved": {
+    "mean": -0.147,
+    "ci_lo": -0.269,
+    "ci_hi": -0.024,
+    "p": 0.02122
+   },
+   "diff_hit": {
+    "mean": -0.3,
+    "ci_lo": -0.411,
+    "ci_hi": -0.189,
+    "p": 2e-05
+   },
+   "helps": false
+  },
+  {
+   "spread": "wide",
+   "costs_ms": {
+    "doc_metadata_lookup": 10.0,
+    "feature_store_fetch": 21.32,
+    "slo_burn_rate_check": 45.44,
+    "code_symbol_index": 96.86,
+    "k8s_pod_telemetry": 206.48,
+    "kb_vector_search": 440.14,
+    "billing_cost_rollup": 938.23,
+    "sql_analytics_query": 2000.0
+   },
+   "capacity": 256,
+   "tenant_ttl_lru": {
+    "saved_pct": 12.486,
+    "hit_pct": 11.613,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 0.0
+   },
+   "proposed_tiered": {
+    "saved_pct": 12.486,
+    "hit_pct": 11.613,
+    "leak_pct": 0.0,
+    "stale_pct": 0.0,
+    "evictions": 0.0
+   },
+   "diff_saved": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p": 1.0
+   },
+   "diff_hit": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p": 1.0
+   },
+   "helps": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Ablation. Overhead is time spent in gateway stages on the single host and on EC2 in one availability zone; end-to-end latency is the single host's mean $\pm$ 95\% CI (five trials of 150 calls, T4 transport, small requests and 4 KB responses). Detection metrics are measured by running the full security suite (240 malicious, 170 benign cases) against each configuration and are identical on both testbeds.}
+\label{tab:ablation}
+\begin{tabular}{ll r r r rrr rr}
+\toprule
+ & & \multicolumn{2}{c}{Overhead (ms)} & End-to-end & \multicolumn{3}{c}{Recall (\%)} & FPR & Precision \\
+\cmidrule(lr){3-4}\cmidrule(lr){6-8}
+Config & Stages added & single host & EC2 & latency (ms) & signature & evasive & all & (\%) & (\%) \\
+\midrule
+A0 & Bare proxy & 0.000 & 0.000 & 7.23 $\pm$ 0.33 & 0.0 & 0.0 & 0.0 & 0.0 & -- \\
+A1 & +M1 auth & 0.102 & 0.045 & 7.35 $\pm$ 0.30 & 25.0 & 0.0 & 16.7 & 0.0 & 100.0 \\
+A2 & +M2 RBAC/schema & 0.119 & 0.052 & 7.41 $\pm$ 0.21 & 50.0 & 0.0 & 33.3 & 0.0 & 100.0 \\
+A3 & +M3 inbound DPI & 0.150 & 0.075 & 7.34 $\pm$ 0.21 & 81.2 & 0.0 & 54.2 & 17.6 & 81.2 \\
+A4 & +M3 outbound DPI/DLP & 0.746 & 0.307 & 7.87 $\pm$ 0.20 & 100.0 & 0.0 & 66.7 & 17.6 & 84.2 \\
+A5 & +M4 proposed cache & 0.647 & 0.313 & 7.39 $\pm$ 0.32 & 100.0 & 0.0 & 66.7 & 17.6 & 84.2 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,5 @@
+*.pem
+known_hosts
+state.json
+code.tar.gz
+user_data.yaml

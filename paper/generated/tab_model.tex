@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Asymptotic-bound model versus measurement for $N \in \{1,\dots,128\}$ closed-loop sessions at 2 ms RTT, pool size $c = 16$. $R_1$ and $S_{\mathrm{hold}}$ are measured at $N=1$; $D_{\mathrm{cpu}}$ is measured CPU time per call at $N=1$ and at $N=128$. Errors are mean absolute percentage errors (MAPE) of the model using $D_{\mathrm{cpu}}$ at $N=1$ / at $N=128$.}
+\label{tab:model}
+\begin{tabular}{l rr rr c r r rr}
+\toprule
+ & $R_1$ & $S_{\mathrm{hold}}$ & \multicolumn{2}{c}{$D_{\mathrm{cpu}}$ (ms)} & Bottle- & Knee & Max $X$ & \multicolumn{2}{c}{MAPE (\%)} \\
+\cmidrule(lr){4-5}\cmidrule(lr){9-10}
+Transport & (ms) & (ms) & $N{=}1$ & $N{=}128$ & neck & $N^*$ & (calls/s) & throughput & latency \\
+\midrule
+T2 HTTP+SSE & 10.36 & 3.41 & 1.367 & 0.351 & cpu & 30 & 2392 & 33 / 9 & 101 / 7 \\
+T3 unpooled & 16.23 & 15.53 & 2.604 & 0.757 & pool & 17 & 890 & 31 / 10 & 68 / 7 \\
+T4 pooled & 10.40 & 9.73 & 1.025 & 0.423 & pool & 17 & 1451 & 15 / 8 & 24 / 6 \\
+T4 + cache & 9.40 & 9.97 & 1.123 & 0.422 & pool & 15 & 1578 & 21 / 6 & 37 / 4 \\
+\bottomrule
+\end{tabular}
+\end{table*}

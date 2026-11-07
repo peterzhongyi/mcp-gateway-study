@@ -1,0 +1,42 @@
+exp5: closed-loop concurrency + bounds model
+  T2       N=  1 X=137/s mean=7.29ms p99=12.83ms cpu=0.673ms/req hold=0.96ms heap=316KB
+  T2       N=  2 X=280/s mean=7.12ms p99=12.82ms cpu=0.517ms/req hold=0.86ms heap=326KB
+  T2       N=  4 X=571/s mean=6.97ms p99=12.67ms cpu=0.413ms/req hold=0.81ms heap=346KB
+  T2       N=  8 X=1132/s mean=7.00ms p99=12.39ms cpu=0.339ms/req hold=0.70ms heap=404KB
+  T2       N= 16 X=2362/s mean=6.63ms p99=12.28ms cpu=0.272ms/req hold=0.76ms heap=543KB
+  T2       N= 32 X=4495/s mean=6.95ms p99=12.66ms cpu=0.221ms/req hold=1.31ms heap=706KB
+  T2       N= 64 X=4619/s mean=13.22ms p99=23.67ms cpu=0.212ms/req hold=2.61ms heap=1144KB
+  T2       N=128 X=4413/s mean=28.08ms p99=43.97ms cpu=0.221ms/req hold=2.94ms heap=1891KB
+  T2 [dcpu_at_n1]: R1=7.29 Dcpu=0.673 Shold=0.96 bottleneck=cpu knee N*=10.8 -> MAPE X=30.88% R=89.48%
+  T2 [dcpu_at_nmax]: R1=7.29 Dcpu=0.221 Shold=0.96 bottleneck=cpu knee N*=32.9 -> MAPE X=2.84% R=4.22%
+  T3       N=  1 X=124/s mean=8.04ms p99=13.74ms cpu=0.943ms/req hold=7.70ms heap=316KB
+  T3       N=  2 X=263/s mean=7.57ms p99=13.57ms cpu=0.639ms/req hold=7.31ms heap=342KB
+  T3       N=  4 X=557/s mean=7.15ms p99=12.75ms cpu=0.401ms/req hold=6.94ms heap=358KB
+  T3       N=  8 X=1078/s mean=7.36ms p99=12.77ms cpu=0.372ms/req hold=7.16ms heap=430KB
+  T3       N= 16 X=2061/s mean=7.56ms p99=13.58ms cpu=0.355ms/req hold=7.36ms heap=587KB
+  T3       N= 32 X=2035/s mean=15.24ms p99=22.15ms cpu=0.368ms/req hold=7.45ms heap=745KB
+  T3       N= 64 X=2015/s mean=31.00ms p99=39.10ms cpu=0.377ms/req hold=7.54ms heap=1162KB
+  T3       N=128 X=2025/s mean=61.95ms p99=70.86ms cpu=0.379ms/req hold=7.53ms heap=1899KB
+  T3 [dcpu_at_n1]: R1=8.04 Dcpu=0.943 Shold=7.70 bottleneck=cpu knee N*=8.5 -> MAPE X=26.95% R=51.89%
+  T3 [dcpu_at_nmax]: R1=8.04 Dcpu=0.379 Shold=7.70 bottleneck=pool knee N*=16.7 -> MAPE X=4.41% R=4.53%
+  T4       N=  1 X=138/s mean=7.26ms p99=12.80ms cpu=0.591ms/req hold=6.93ms heap=311KB
+  T4       N=  2 X=280/s mean=7.11ms p99=12.75ms cpu=0.475ms/req hold=6.82ms heap=333KB
+  T4       N=  4 X=568/s mean=7.00ms p99=12.71ms cpu=0.381ms/req hold=6.75ms heap=349KB
+  T4       N=  8 X=1126/s mean=7.06ms p99=12.57ms cpu=0.320ms/req hold=6.84ms heap=399KB
+  T4       N= 16 X=2366/s mean=6.64ms p99=12.30ms cpu=0.259ms/req hold=6.44ms heap=527KB
+  T4       N= 32 X=2210/s mean=14.06ms p99=21.06ms cpu=0.269ms/req hold=6.75ms heap=673KB
+  T4       N= 64 X=2207/s mean=28.32ms p99=36.18ms cpu=0.271ms/req hold=6.78ms heap=1090KB
+  T4       N=128 X=2215/s mean=56.69ms p99=65.24ms cpu=0.270ms/req hold=6.78ms heap=1832KB
+  T4 [dcpu_at_n1]: R1=7.26 Dcpu=0.591 Shold=6.93 bottleneck=cpu knee N*=12.3 -> MAPE X=13.22% R=19.06%
+  T4 [dcpu_at_nmax]: R1=7.26 Dcpu=0.270 Shold=6.93 bottleneck=pool knee N*=16.8 -> MAPE X=3.39% R=2.96%
+  T4+cache N=  1 X=152/s mean=6.59ms p99=12.79ms cpu=0.536ms/req hold=7.16ms heap=1041KB
+  T4+cache N=  2 X=302/s mean=6.61ms p99=12.83ms cpu=0.440ms/req hold=7.06ms heap=947KB
+  T4+cache N=  4 X=620/s mean=6.40ms p99=12.69ms cpu=0.363ms/req hold=7.03ms heap=976KB
+  T4+cache N=  8 X=1200/s mean=6.59ms p99=12.67ms cpu=0.317ms/req hold=7.09ms heap=1035KB
+  T4+cache N= 16 X=2514/s mean=6.23ms p99=12.32ms cpu=0.259ms/req hold=6.77ms heap=1279KB
+  T4+cache N= 32 X=2377/s mean=12.97ms p99=21.30ms cpu=0.260ms/req hold=7.01ms heap=1546KB
+  T4+cache N= 64 X=2336/s mean=26.56ms p99=37.13ms cpu=0.267ms/req hold=6.99ms heap=1848KB
+  T4+cache N=128 X=2276/s mean=54.79ms p99=66.84ms cpu=0.276ms/req hold=6.92ms heap=2517KB
+  T4+cache [dcpu_at_n1]: R1=6.59 Dcpu=0.536 Shold=7.16 bottleneck=cpu knee N*=12.3 -> MAPE X=11.19% R=16.01%
+  T4+cache [dcpu_at_nmax]: R1=6.59 Dcpu=0.276 Shold=7.16 bottleneck=pool knee N*=14.7 -> MAPE X=3.39% R=5.14%
+done in 168.2 s -> results/aws_cross_az_exp5steady.json

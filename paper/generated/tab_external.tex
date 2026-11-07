@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Signature inspection (M3) on public datasets: cases blocked / cases. Injected tool responses are checked as upstream responses, prompts as tool arguments. ``All rules'' applies every inbound and outbound rule to each text.}
+\label{tab:external}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l l rr}
+\toprule
+Dataset & Direction & As deployed & All rules \\
+\midrule
+InjecAgent, base (attacks) & outbound & 0/1054 & 0/1054 \\
+InjecAgent, enhanced (attacks) & outbound & 0/1054 & 0/1054 \\
+deepset, injections & inbound & 0/263 & 0/263 \\
+deepset, benign & inbound & 0/399 & 0/399 \\
+NotInject (benign) & inbound & 0/339 & 0/339 \\
+\bottomrule
+\end{tabular}
+\end{table}

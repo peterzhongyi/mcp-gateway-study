@@ -1,0 +1,12 @@
+{
+ "io_scales": {
+  "ablation": 0.25,
+  "middleware": 0.05,
+  "none": 0.0
+ },
+ "m1_ms": {
+  "ablation": 0.0874,
+  "middleware": 0.0661,
+  "none": 0.0382
+ }
+}

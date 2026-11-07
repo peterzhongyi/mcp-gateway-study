@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\caption{Closed-loop results on Amazon EC2. $X_{\max}$ is the highest throughput over $N = 1$--128 sessions (three trials); P99 is T4's tail latency at the largest $N$. MAPE is the bounds model's throughput error across the four configurations, with $D_{\mathrm{cpu}}$ measured at the largest $N$ (load) or at $N = 1$.}
+\label{tab:aws-throughput}
+\footnotesize
+\setlength{\tabcolsep}{2.1pt}
+\begin{tabular}{ll r rrr r rr}
+\toprule
+ & & & \multicolumn{3}{c}{$X_{\max}$ (calls/s)} & T4 P99 & \multicolumn{2}{c}{MAPE (\%)} \\
+\cmidrule(lr){4-6}\cmidrule(lr){8-9}
+Placement & Security & RTT (ms) & T2 & T3 & T4 & (ms) & load & $N{=}1$ \\
+\midrule
+Same AZ & TCP & 0.15 & 4884 & 2203 & 2508 & 62 & 3--5 & 3--24 \\
+ & TLS & 0.15 & 4552 & 815 & 2496 & 63 & 2--4 & 4--27 \\
+\addlinespace
+Cross AZ & TCP & 0.53 & 4619 & 2061 & 2366 & 65 & 3--4 & 11--31 \\
+ & TLS & 0.54 & 4289 & 769 & 2320 & 66 & 3--4 & 17--33 \\
+\addlinespace
+Cross region & TCP & 12.73 & 1248 & 513 & 857 & 159 & 0--5 & 0--5 \\
+ & TLS & 12.90 & 1254 & 347 & 825 & 166 & 1--5 & 1--5 \\
+\bottomrule
+\end{tabular}
+\end{table}

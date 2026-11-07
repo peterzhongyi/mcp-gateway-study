@@ -1,0 +1,2 @@
+# Keep third-party datasets byte-identical to the pinned upstream revisions.
+mcp_cloud_proxy/external_data/** -text

@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Sequential end-to-end latency per tool call (ms) by transport and emulated RTT: mean $\pm$ 95\% CI over five trials, and P99 of the per-trial distribution. Session setup is the median time to establish a new agent session before its first call.}
+\label{tab:transports}
+\begin{tabular}{l rr rr rr rr}
+\toprule
+ & \multicolumn{2}{c}{RTT = 0 ms (loopback)} & \multicolumn{2}{c}{RTT = 2 ms} & \multicolumn{2}{c}{RTT = 10 ms} & \multicolumn{2}{c}{Session setup (ms)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+Transport & mean & P99 & mean & P99 & mean & P99 & RTT 0 & RTT 10 \\
+\midrule
+T1 stdio & 7.16 $\pm$ 0.27 & 12.8 & -- & -- & -- & -- & 296.4 & -- \\
+T2 HTTP+SSE & 7.70 $\pm$ 0.18 & 13.3 & 10.55 $\pm$ 0.18 & 16.5 & 18.73 $\pm$ 0.22 & 24.4 & 1.3 & 33.9 \\
+T3 Str.\ HTTP, unpooled & 8.33 $\pm$ 0.19 & 14.2 & 16.07 $\pm$ 0.21 & 21.9 & 40.47 $\pm$ 0.25 & 46.5 & per call & per call \\
+T4 Str.\ HTTP, pooled & 7.55 $\pm$ 0.23 & 13.0 & 10.52 $\pm$ 0.24 & 16.3 & 18.72 $\pm$ 0.15 & 24.7 & 0.3 & 21.3 \\
+T4 + cache & 7.18 $\pm$ 0.42 & 13.1 & 9.89 $\pm$ 0.46 & 16.2 & 17.56 $\pm$ 0.77 & 24.7 & as T4 & as T4 \\
+\bottomrule
+\end{tabular}
+\end{table*}
