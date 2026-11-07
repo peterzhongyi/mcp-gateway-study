@@ -35,15 +35,15 @@
 
 \author{\uppercase{He Li}\authorrefmark{1,*} and \uppercase{Yi Zhong}\authorrefmark{2,*}}
 
-\address[1]{Cornell University, Ithaca, NY, USA (e-mail: hl746@cornell.edu)}
-\address[2]{Columbia University, New York, NY, USA (e-mail: yz3935@columbia.edu)}
+\address[1]{Independent Researcher, Kirkland, WA, USA (e-mail: heli268@outlook.com)}
+\address[2]{Independent Researcher, Kirkland, WA, USA (e-mail: peterzhongyi@outlook.com)}
 \address[*]{These authors contributed equally to this work.}
 
 \markboth
 {H. Li and Y. Zhong: Security-Enforcing Gateways for the Model Context Protocol}
 {H. Li and Y. Zhong: Security-Enforcing Gateways for the Model Context Protocol}
 
-\corresp{Corresponding author: Yi Zhong (e-mail: yz3935@columbia.edu).}
+\corresp{Corresponding author: Yi Zhong (e-mail: peterzhongyi@outlook.com).}
 
 \begin{abstract}
 Large language model agents increasingly call enterprise tools through the Model Context Protocol (MCP), often via a gateway that centralizes security and caching, whose costs have rarely been measured. We build an MCP gateway with identity, authorization, inspection, and caching stages and four upstream transports, and evaluate it on one host with emulated network delay and on Amazon EC2 at three network distances over TCP and TLS~1.3. First, connection reuse dominates transport cost on real networks: across regions with TLS, unpooled Streamable HTTP is \awTthreeOverTfourXregTls$\times$ slower per call than pooled, and per-call TLS handshakes more than halve unpooled capacity even within one zone. Second, identity and authorization checks cost about 0.1\ms per call and stop every credential and authorization violation tested, whereas signature-based inspection is the only stage whose cost grows with payload size, reaching \mDpiShareBig\% of gateway time at \mBigSize\,KB, yet it detects none of \extAttacks\ attacks from public prompt-injection datasets. Third, caches that ignore the tenant achieve the highest hit rates but answer \cGlruLeak\% of calls with another tenant's data; tenant-scoped keys with per-tool freshness bounds eliminate leaked and stale responses at the cost of hit rate. A queueing bound matches maximum throughput on EC2 within \awMapeMin--\awMapeMax\% with CPU cost measured under load (\awMapeOneMin--\awMapeOneMax\% with single-session measurements), and a cost model shows that because serverless billing includes time spent waiting on tools, its cost advantage disappears at lower volumes as tool latency grows.
